@@ -24,7 +24,10 @@ function getNames(people) {}
 // Ex.:
 //   getName({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
 //   => 'Gale Dekarios'
-function getNameUsingDestructuring(person) {}
+function getNameUsingDestructuring(person) {
+    const { firstName, lastName } = person
+    return firstName + lastName
+  }
 
 // Given an array of objects representing people, return a new array of the
 // people matching the given location.
