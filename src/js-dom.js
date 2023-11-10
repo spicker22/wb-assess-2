@@ -2,14 +2,29 @@
 // This file is imported as a script by `js-dom.html`.
 // Refer to `js-dom.html` to see the HTML elements you will be interacting with.
 
+
+
+/// Problem 1 /////
 // Log in/log out button
 //
 // When a user clicks on the button that says "Log In", its text should
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+// 1. select an element
+const logIn = document.querySelector('#auth');
+//console.log(logIn.textContent);
 
+// 2. write a function
+ const changeText = () => {
+     logIn.textContent = "Log out";
+ }
+
+// 3. combine with event listener
+logIn.addEventListener("click", changeText);
+
+
+/// Problem 2 /////
 // Send an alert
 //
 // This form will send an alert to a user via the built-in alert function.
@@ -17,8 +32,23 @@
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
-/// TODO: replace this with your code
+// // 1. select an element
+// const sendAlert = document.querySelector('#submit');
+// const alertMessage = document.querySelector('#alert-message');
 
+// // 2. write a function
+//  const textAlert = (event) => {
+//     const target = event.target;
+//     alert(target.value)
+//  }
+
+// // 3. combine with event listener
+// sendAlert.addEventListener("click", textAlert);
+
+
+
+
+/// Problem 3 /////
 // Add an item
 //
 // This is a pretty silly feature -- when a user clicks on the
@@ -36,6 +66,23 @@
 
 /// TODO: replace this with your code
 
+
+
+// // 1. select an element
+// const doubleClick = document.querySelector('#item-adder');
+// const addItem = document.querySelector('#list');
+
+// // 2. write a function
+//  const myFunc = (event) => {
+//     'add another item to the list'
+//  }
+
+// // 3. combine with event listener
+// doubleClick.addEventListener("dblclick", myFunc);
+
+
+
+/// Problem 4 /////
 // Change colors
 //
 // Users should be able to change the color of any element with the
@@ -45,8 +92,26 @@
 // Clicking on "Turn Stuff Red" should make text red and clicking on "Turn
 // Stuff Blue" should make text blue.
 
-/// TODO: replace this with your code
 
+// 1. select an element
+const turnBlue = document.querySelector('#blue');
+const turnRed = document.getElementById("red");
+
+// 2. write a function
+const turnTextBlue = () => {
+    document.querySelector('#color-changer').style.color='blue';
+ }
+ const turnTextRed = () => {
+    document.querySelector('#color-changer').style.color='red';
+ }
+
+// 3. combine with event listener
+turnBlue.addEventListener("dblclick", turnTextBlue);
+turnRed.addEventListener("dblclick", turnTextRed);
+
+
+
+/// Problem 5 /////
 // Calculate factorial
 //
 // The factorial of a number is the product of an integer and all the integers
@@ -62,7 +127,36 @@
 //   - calls your function that calculates a factorial
 //   - puts the result of the function inside the "result" span
 
-/// TODO: replace this with your code
+
+// 1. select an element
+const factorialButton = document.querySelector('#submit');
+
+
+// 2. write a function
+const factorialFunc = (num) => {
+    if (num === 0 || num === 1)
+    return 1;
+    for (var i = num - 1; i >= 1; i--) {
+    num *= i;
+  }
+  return num;
+}
+
+// 3. combine with event listener
+variable.addEventListener("click", factorialFunc);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Validate a form
 //
@@ -80,3 +174,19 @@
 // change the color of the text to red..
 
 /// TODO: replace this with your code
+
+
+
+
+
+// preventDefault is needed for forms! //
+// Notes -> need to use this for 'Validate a Form' or others
+
+// const someFunction = (event) => {
+//     event.preventDefault()
+//     'do something else'
+// }
+
+
+
+
