@@ -11,7 +11,6 @@ body {
 table {
     margin-top: 50px;
     padding: 5px;
-    border: 1px;
   }
 
 #submitButton {
@@ -22,6 +21,17 @@ table {
     color: black;
   }
 
+table, th, td {
+    border: 1px solid;
+  }
 
 
+select option {
+    color:#333;
+}
+
+
+#colors {
+    color: black;
+}
   
