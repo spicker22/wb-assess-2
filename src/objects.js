@@ -50,7 +50,10 @@ function getNameUsingDestructuring(person) {
 //     { firstName: 'Wyll', lastName: 'Ravengard', location: "Baldur's Gate" },
 //     { firstName: 'Astarion', lastName: 'Ancunin', location: "Baldur's Gate" }
 //   ];
-function getPeopleByLocation(people, location) {}
+
+function getPeopleByLocation(people, location) {
+  return people.filter((person) => person.location === location )
+}
 
 // Translate a phrase to pirate talk.
 //
@@ -79,7 +82,10 @@ const EN_PIRATE_LOOKUP = {
   hello: 'ahoy',
 };
 
-function translateToPirateTalk(phrase) {}
+function translateToPirateTalk(phrase) {
+  const words = phrase.split(' ');
+  return words.map(word => EN_PIRATE_LOOKUP[word] || word).join(' ');
+}
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can
@@ -88,7 +94,22 @@ function translateToPirateTalk(phrase) {}
 // Ex.:
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
-function wordCount(str) {}
+function wordCount(str) {
+  const words = str.split(' ');
+  const wordCounts = {};
+  for (const word of words) {
+    if (word !== '') {
+      if (wordCounts[word]) {
+        wordCounts[word]++;
+      } else {
+        wordCounts[word] = 1;
+      }
+    }
+  }
+  return wordCounts;
+}
+
+
 
 // Given an object representing a bug, return true if the given bug is
 // available in the given month.
@@ -110,7 +131,12 @@ function wordCount(str) {}
 //     }
 //   }, 1);
 //   => true
-function isBugAvailable(bug, month) {}
+function isBugAvailableInMonth(bug, month) {
+  if (bug.availability && Array.isArray(bug.availability.months)) {
+    return bug.availability.months.includes(month);
+  }
+  return false;
+}
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
